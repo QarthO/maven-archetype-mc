@@ -4,7 +4,9 @@ import gg.quartzdev.qtemplateplugin.util.Messages;
 import gg.quartzdev.qtemplateplugin.util.QLogger;
 import gg.quartzdev.qtemplateplugin.util.QPlugin;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,6 +59,10 @@ public class QConfiguration {
         }
     }
 
+    public @Nullable Object get(String path){
+        return yamlConfiguration.get(path);
+    }
+
     /**
      * Parses string
      * @param path - location in the config
@@ -69,7 +75,6 @@ public class QConfiguration {
         if(data == null){
             return 0;
         }
-
 //        Convert to string and try parsing
         String rawData = data.toString();
         Number number = null;
@@ -91,5 +96,40 @@ public class QConfiguration {
             }
         }
         return number;
+    }
+
+    /**
+     * Gets a ${@link String } at the given path in the configuration file.
+     * @param path - the path in the configuration
+     * @return - the string value found at the given path. Returns an empty string if no data found
+     */
+    public @NotNull String getString(String path){
+
+        Object data = yamlConfiguration.get(path);
+
+//       If data isn't found
+        if(data == null){
+            return "";
+        }
+
+        return data.toString();
+
+    }
+
+    public @Nullable EntityType getEntityType(String path){
+        Object data = yamlConfiguration.get(path);
+
+//       If data isn't found
+        if(data == null){
+            return null;
+        }
+//        Convert to string and try parsing
+        String rawData = data.toString();
+
+        try {
+            return EntityType.valueOf(rawData);
+        } catch(IllegalArgumentException e){
+            return null;
+        }
     }
 }
