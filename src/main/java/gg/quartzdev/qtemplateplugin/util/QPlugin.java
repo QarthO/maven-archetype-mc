@@ -1,38 +1,67 @@
 package gg.quartzdev.qtemplateplugin.util;
 
+import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
 import gg.quartzdev.qtemplateplugin.qTemplatePlugin;
 import gg.quartzdev.qtemplateplugin.storage.QConfiguration;
+import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
 
 public class QPlugin {
 
-    private static qTemplatePlugin instance;
+    public static QPlugin instance;
+    private static qTemplatePlugin javaPlugin;
+
+    public static qTemplatePlugin getPlugin(){
+        return javaPlugin;
+    }
     private QConfiguration config;
 //    private
 
-    public QPlugin(qTemplatePlugin plugin){
-        instance = plugin;
+    private QPlugin(qTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
+        javaPlugin = plugin;
+        if(useConfig){
+            setupPluginConfig();
+        }
+
+        if(bStatsPluginId > 0){
+            setupMetrics(bStatsPluginId);
+        }
+
+        registerListeners();
     }
 
-    public static qTemplatePlugin getInstance(){
-        return instance;
+    public static void enable(qTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
+        if(instance != null){
+            QLogger.error("Error: Plugin already enabled");
+            return;
+        }
+        instance = new QPlugin(plugin, useConfig, bStatsPluginId);
     }
+
+    public static void disable(){
+
+    }
+
+    public void setupMetrics(int pluginId){
+        Metrics metrics = new Metrics(javaPlugin, pluginId);
+    }
+
 
     @SuppressWarnings("UnstableApiUsage")
     public static String getVersion(){
-        return getInstance().getPluginMeta().getVersion();
+        return javaPlugin.getPluginMeta().getVersion();
     }
 
     public static String getName(){
-        return getInstance().getName();
+        return javaPlugin.getName();
     }
 
     public void setupPluginConfig(){
         config = new QConfiguration("config.yml");
     }
 
-    public QConfiguration qConfig(){
-//        config = new YamlConfiguration()
-        return null;
+    public void registerListeners(){
+        Bukkit.getPluginManager().registerEvents(new ExampleListener(), javaPlugin);
     }
 
 }

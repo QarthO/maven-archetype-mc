@@ -22,7 +22,7 @@ public class QConfiguration {
     public QConfiguration(String fileName){
         String fileSeparator = System.getProperty("file.separator");
         filePath =
-                QPlugin.getInstance().getDataFolder() +
+                QPlugin.getPlugin().getDataFolder() +
                 fileSeparator +
                 fileName.replaceAll("/", fileSeparator);
         loadFile();
@@ -32,7 +32,7 @@ public class QConfiguration {
         file = new File(filePath);
         try {
             if (file.createNewFile()) {
-                QPlugin.getInstance().saveResource(filePath, true);
+                QPlugin.getPlugin().saveResource(filePath, true);
                 QLogger.info(Messages.FILE_CREATED);
             }
             yamlConfiguration = YamlConfiguration.loadConfiguration(file);
