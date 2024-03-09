@@ -3,6 +3,9 @@ package gg.quartzdev.qtemplateplugin.storage;
 import gg.quartzdev.qtemplateplugin.util.Messages;
 import gg.quartzdev.qtemplateplugin.util.QLogger;
 import gg.quartzdev.qtemplateplugin.util.QPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.jetbrains.annotations.NotNull;
@@ -13,13 +16,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QConfiguration {
+public abstract class QConfiguration {
+    private final String fileName;
     private final String filePath;
     private final String schemaVersion = "1.0";
     private File file;
-    private YamlConfiguration yamlConfiguration;
+    protected YamlConfiguration yamlConfiguration;
 
     public QConfiguration(String fileName){
+        this.fileName = fileName;
         String fileSeparator = System.getProperty("file.separator");
         filePath =
                 QPlugin.getPlugin().getDataFolder() +
@@ -29,16 +34,19 @@ public class QConfiguration {
     }
 
     private void loadFile() {
+        QLogger.info("loading file");
         file = new File(filePath);
         try {
-            if (file.createNewFile()) {
-                QPlugin.getPlugin().saveResource(filePath, true);
+            QLogger.info("!file.createNewFile() = " + !file.createNewFile());
+            if (!file.createNewFile()) {
+                QPlugin.getPlugin().saveResource(fileName, true);
                 QLogger.info(Messages.FILE_CREATED);
             }
             yamlConfiguration = YamlConfiguration.loadConfiguration(file);
             stampFile();
         } catch (IOException exception) {
             QLogger.error(Messages.ERROR_CREATE_FILE.parse("file", filePath));
+            QLogger.error(exception.getMessage());
         }
     }
     private void stampFile(){
@@ -58,6 +66,9 @@ public class QConfiguration {
             QLogger.error(Messages.ERROR_SAVE_FILE.parse("file", filePath));
         }
     }
+
+    abstract void loadAllData();
+    abstract void saveAllData();
 
     public @Nullable Object get(String path){
         return yamlConfiguration.get(path);
@@ -131,5 +142,35 @@ public class QConfiguration {
         } catch(IllegalArgumentException e){
             return null;
         }
+    }
+
+    public @Nullable Location getLocation(String path){
+        return yamlConfiguration.getLocation(path);
+    }
+
+    public List<?> getList(String path){
+        List<?> list = new ArrayList<>();
+        return yamlConfiguration.getList(path, list);
+    }
+
+    public List<String> getStringList(String path){
+        if(!yamlConfiguration.contains(path)){
+            return new ArrayList<>();
+        }
+        return yamlConfiguration.getStringList(path);
+    }
+
+    public List<World> getWorldList(String path){
+        List<World> worlds = new ArrayList<>();
+        for(String worldName : getStringList(path)){
+            World world = Bukkit.getWorld(worldName);
+            if(world == null){
+//                    logger.error(Language.ERROR_WORLD_NOT_FOUND.parse("world", worldName));
+            }
+            else {
+                worlds.add(world);
+            }
+        }
+        return worlds;
     }
 }

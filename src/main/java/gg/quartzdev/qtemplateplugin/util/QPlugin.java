@@ -1,23 +1,26 @@
 package gg.quartzdev.qtemplateplugin.util;
 
 import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
-import gg.quartzdev.qtemplateplugin.qTemplatePlugin;
+import gg.quartzdev.qtemplateplugin.QTemplatePlugin;
+import gg.quartzdev.qtemplateplugin.storage.Config;
 import gg.quartzdev.qtemplateplugin.storage.QConfiguration;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 
+import java.io.IOException;
+
 public class QPlugin {
 
     public static QPlugin instance;
-    private static qTemplatePlugin javaPlugin;
+    private static QTemplatePlugin javaPlugin;
+    private static QConfiguration config;
 
-    public static qTemplatePlugin getPlugin(){
+    public static QTemplatePlugin getPlugin(){
         return javaPlugin;
     }
-    private QConfiguration config;
 //    private
 
-    private QPlugin(qTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
+    private QPlugin(QTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
         javaPlugin = plugin;
         if(useConfig){
             setupPluginConfig();
@@ -30,7 +33,7 @@ public class QPlugin {
         registerListeners();
     }
 
-    public static void enable(qTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
+    public static void enable(QTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
         if(instance != null){
             QLogger.error("Error: Plugin already enabled");
             return;
@@ -39,7 +42,12 @@ public class QPlugin {
     }
 
     public static void disable(){
+        QLogger.info("Disabling...");
+        instance = null;
+        javaPlugin = null;
+        config = null;
 
+//        Put logic to stop any async tasks
     }
 
     public void setupMetrics(int pluginId){
@@ -56,8 +64,17 @@ public class QPlugin {
         return javaPlugin.getName();
     }
 
+    private void createDataFolder(){
+        try{
+            javaPlugin.getDataFolder().mkdirs();
+        } catch(SecurityException exception){
+            QLogger.error("oops data folder whoopsies :c");
+        }
+    }
+
     public void setupPluginConfig(){
-        config = new QConfiguration("config.yml");
+        createDataFolder();
+        config = new Config("config.yml");
     }
 
     public void registerListeners(){
