@@ -9,12 +9,16 @@ public enum Messages {
     //    Generic Plugin
     PLUGIN_INFO("<prefix> <green>Running version <gray><version>"),
     RELOAD_COMPLETE("<prefix> <green>Config reloaded"),
+    PLUGIN_DISABLE("<prefix> Disabling..."),
+    PLUGIN_UNSAFE_DISABLE("<prefix> <yellow>Caution: Reloading the server might cause issues. Try restarting the server next time"),
     ERROR_CMD_NOT_FOUND("<prefix> <red>Error: Command not found: <yellow><cmd>"),
     ERROR_NO_PERMISSION("<prefix> <red>Error: You don't have permission to perform this"),
     ERROR_PLAYER_ONLY_COMMAND("<prefix> <red>Error: You must be a player to run this command"),
     ERROR_CONSOLE_ONLY_COMMAND("<prefix> <red>Error: This command can only be ran from the console"),
+    //      Dev Errors
+    ERROR_PLUGIN_ENABLE("<prefix> <red>Error: Plugin already enabled. Most likely caused by unsupported plugin managers or an addon"),
 
-    //    Generic File
+    //      Generic File
     FILE_CREATED("<prefix> <green>Created file: <yellow><file>"),
     ERROR_CREATE_FILE("<prefix> <red>Error creating file: <yellow><file>"),
     ERROR_SAVE_FILE("<prefix> <red>Error saving file: <yellow><file>"),

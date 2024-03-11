@@ -7,13 +7,12 @@ import gg.quartzdev.qtemplateplugin.storage.QConfiguration;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 
-import java.io.IOException;
-
 public class QPlugin {
 
     public static QPlugin instance;
     private static QTemplatePlugin javaPlugin;
     private static QConfiguration config;
+    private boolean selfDisabled;
 
     public static QTemplatePlugin getPlugin(){
         return javaPlugin;
@@ -35,14 +34,19 @@ public class QPlugin {
 
     public static void enable(QTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
         if(instance != null){
-            QLogger.error("Error: Plugin already enabled");
+            QLogger.error(Messages.ERROR_PLUGIN_ENABLE);
             return;
         }
         instance = new QPlugin(plugin, useConfig, bStatsPluginId);
     }
 
     public static void disable(){
-        QLogger.info("Disabling...");
+        final boolean isStopping = Bukkit.getServer().isStopping();
+        if(!isStopping && !instance.selfDisabled){
+            QLogger.warning(Messages.PLUGIN_UNSAFE_DISABLE);
+        }
+
+        QLogger.info(Messages.PLUGIN_DISABLE);
         instance = null;
         javaPlugin = null;
         config = null;
@@ -68,7 +72,7 @@ public class QPlugin {
         try{
             javaPlugin.getDataFolder().mkdirs();
         } catch(SecurityException exception){
-            QLogger.error("oops data folder whoopsies :c");
+            QLogger.error(Messages.ERROR_CREATE_FILE.parse("file", "Plugin Data Folder"));
         }
     }
 

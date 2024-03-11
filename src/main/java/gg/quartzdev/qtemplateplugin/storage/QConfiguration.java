@@ -34,26 +34,24 @@ public abstract class QConfiguration {
     }
 
     private void loadFile() {
-        QLogger.info("loading file");
         file = new File(filePath);
         try {
-            QLogger.info("!file.createNewFile() = " + !file.createNewFile());
-            if (!file.createNewFile()) {
+            if (file.createNewFile()) {
                 QPlugin.getPlugin().saveResource(fileName, true);
-                QLogger.info(Messages.FILE_CREATED);
+                QLogger.info(Messages.FILE_CREATED.parse("file", fileName));
             }
             yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-            stampFile();
+            stampFile(this.schemaVersion);
         } catch (IOException exception) {
-            QLogger.error(Messages.ERROR_CREATE_FILE.parse("file", filePath));
+            QLogger.error(Messages.ERROR_CREATE_FILE.parse("file", fileName));
             QLogger.error(exception.getMessage());
         }
     }
-    private void stampFile(){
+    public void stampFile(String schemaVersion){
         List<String> notes = new ArrayList<>();
         notes.add("Last loaded with " + QPlugin.getName() + " v" + QPlugin.getVersion());
         if(yamlConfiguration.contains("schema-version")) {
-            yamlConfiguration.set("schema-version", this.schemaVersion);
+            yamlConfiguration.set("schema-version", schemaVersion);
         }
         yamlConfiguration.setComments("schema-version", notes);
         save();

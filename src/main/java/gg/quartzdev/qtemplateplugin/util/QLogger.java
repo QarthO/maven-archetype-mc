@@ -28,6 +28,15 @@ public class QLogger {
     }
 
     /**
+     * Logs a warning
+     * @param msg
+     */
+    public static void warning(Messages msg){
+        info("<yellow>" + msg.get());
+//        TODO: Optional log warnings to file
+    }
+
+    /**
      * Logs error
      * @param msg
      */
