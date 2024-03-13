@@ -17,7 +17,7 @@ public class CommandManager extends Command {
 
     HashMap<String, QCommand> subCommands;
 
-    public CommandManager(String name, List<String> aliases, HashMap<String, QCommand> subCommands){
+    public CommandManager(String name, @NotNull List<String> aliases, @NotNull HashMap<String, QCommand> subCommands){
         super(name);
         super.setAliases(aliases);
         this.subCommands = subCommands;
@@ -27,7 +27,6 @@ public class CommandManager extends Command {
 
     @Override
     public boolean execute(@NotNull CommandSender sender, @NotNull String labelOrAlias, @NotNull String[] args) {
-
 //        Send base command
         if(args.length == 0){
             return subCommands.get("").run(sender, labelOrAlias, args);

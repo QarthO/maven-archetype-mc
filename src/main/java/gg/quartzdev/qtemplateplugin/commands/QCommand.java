@@ -40,5 +40,4 @@ public abstract class QCommand {
     }
     public abstract Iterable<String> tabCompletionLogic(CommandSender sender, String[] args);
 
-
 }

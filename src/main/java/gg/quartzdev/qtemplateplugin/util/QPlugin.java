@@ -1,5 +1,6 @@
 package gg.quartzdev.qtemplateplugin.util;
 
+import gg.quartzdev.qtemplateplugin.commands.CMD;
 import gg.quartzdev.qtemplateplugin.commands.CommandManager;
 import gg.quartzdev.qtemplateplugin.commands.QCommand;
 import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
@@ -96,6 +97,7 @@ public class QPlugin {
         List<String> aliases = new ArrayList<>();
         aliases.add("template");
         HashMap<String, QCommand> subCommands = new HashMap<>();
+        subCommands.put("", new CMD("info", QPerm.GROUP_BASIC));
         new CommandManager(getName(), aliases, subCommands);
     }
 
