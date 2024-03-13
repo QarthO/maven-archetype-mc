@@ -132,6 +132,7 @@ public abstract class QConfiguration {
         if(data == null){
             return null;
         }
+
 //        Convert to string and try parsing
         String rawData = data.toString();
 

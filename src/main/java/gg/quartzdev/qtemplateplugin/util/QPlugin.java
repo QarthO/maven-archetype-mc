@@ -1,11 +1,17 @@
 package gg.quartzdev.qtemplateplugin.util;
 
+import gg.quartzdev.qtemplateplugin.commands.CommandManager;
+import gg.quartzdev.qtemplateplugin.commands.QCommand;
 import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
 import gg.quartzdev.qtemplateplugin.QTemplatePlugin;
 import gg.quartzdev.qtemplateplugin.storage.Config;
 import gg.quartzdev.qtemplateplugin.storage.QConfiguration;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class QPlugin {
 
@@ -29,6 +35,7 @@ public class QPlugin {
             setupMetrics(bStatsPluginId);
         }
 
+        registerCommands();
         registerListeners();
     }
 
@@ -83,6 +90,13 @@ public class QPlugin {
 
     public void registerListeners(){
         Bukkit.getPluginManager().registerEvents(new ExampleListener(), javaPlugin);
+    }
+
+    public void registerCommands(){
+        List<String> aliases = new ArrayList<>();
+        aliases.add("template");
+        HashMap<String, QCommand> subCommands = new HashMap<>();
+        new CommandManager(getName(), aliases, subCommands);
     }
 
 }
