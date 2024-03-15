@@ -24,6 +24,9 @@ public enum Messages {
     ERROR_SAVE_FILE("<prefix> <red>Error saving file: <yellow><file>"),
     ERROR_CORRUPT_FILE("<prefix> <red>Error: Corrupt file: <yellow><file></yellow><newline>Please reset the file."),
 
+//          Example Messages
+    CONFIG_SET_SETTING("<prefix> <yellow><setting><green> has been set to <yellow><value>"),
+
     END("");
 
 

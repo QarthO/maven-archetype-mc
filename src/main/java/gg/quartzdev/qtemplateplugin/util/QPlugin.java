@@ -1,6 +1,7 @@
 package gg.quartzdev.qtemplateplugin.util;
 
 import gg.quartzdev.qtemplateplugin.commands.CMD;
+import gg.quartzdev.qtemplateplugin.commands.CMDreload;
 import gg.quartzdev.qtemplateplugin.commands.CommandManager;
 import gg.quartzdev.qtemplateplugin.commands.QCommand;
 import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
@@ -18,16 +19,20 @@ public class QPlugin {
 
     public static QPlugin instance;
     private static QTemplatePlugin javaPlugin;
-    private static QConfiguration config;
+    private static Config config;
     private boolean selfDisabled;
 
     public static QTemplatePlugin getPlugin(){
         return javaPlugin;
     }
-//    private
+
+    public static Config getConfig(){
+        return config;
+    }
 
     private QPlugin(QTemplatePlugin plugin, boolean useConfig, int bStatsPluginId){
         javaPlugin = plugin;
+
         if(useConfig){
             setupPluginConfig();
         }
@@ -49,6 +54,8 @@ public class QPlugin {
     }
 
     public static void disable(){
+
+//        Warns about reloading
         final boolean isStopping = Bukkit.getServer().isStopping();
         if(!isStopping && !instance.selfDisabled){
             QLogger.warning(Messages.PLUGIN_UNSAFE_DISABLE);
@@ -65,7 +72,6 @@ public class QPlugin {
     public void setupMetrics(int pluginId){
         Metrics metrics = new Metrics(javaPlugin, pluginId);
     }
-
 
     @SuppressWarnings("UnstableApiUsage")
     public static String getVersion(){
@@ -89,16 +95,17 @@ public class QPlugin {
         config = new Config("config.yml");
     }
 
-    public void registerListeners(){
-        Bukkit.getPluginManager().registerEvents(new ExampleListener(), javaPlugin);
-    }
-
     public void registerCommands(){
         List<String> aliases = new ArrayList<>();
         aliases.add("template");
         HashMap<String, QCommand> subCommands = new HashMap<>();
         subCommands.put("", new CMD("info", QPerm.GROUP_BASIC));
+        subCommands.put("reload", new CMDreload("reload", QPerm.GROUP_ADMIN));
         new CommandManager(getName(), aliases, subCommands);
+    }
+
+    public void registerListeners(){
+        Bukkit.getPluginManager().registerEvents(new ExampleListener(), javaPlugin);
     }
 
 }

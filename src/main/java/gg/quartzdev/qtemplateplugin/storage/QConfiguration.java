@@ -19,7 +19,8 @@ import java.util.List;
 public abstract class QConfiguration {
     private final String fileName;
     private final String filePath;
-    private final String schemaVersion = "1.0";
+    private double schemaVersion = 1.0;
+    private double minSupportedScema = 1.0;
     private File file;
     protected YamlConfiguration yamlConfiguration;
 
@@ -40,21 +41,31 @@ public abstract class QConfiguration {
                 QPlugin.getPlugin().saveResource(fileName, true);
                 QLogger.info(Messages.FILE_CREATED.parse("file", fileName));
             }
+
             yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+            if(!validateSchema()){
+                QLogger.info("Unsupported Config Schema... Reset your config");
+            }
             stampFile(this.schemaVersion);
         } catch (IOException exception) {
             QLogger.error(Messages.ERROR_CREATE_FILE.parse("file", fileName));
             QLogger.error(exception.getMessage());
         }
     }
-    public void stampFile(String schemaVersion){
+    public void stampFile(double schemaVersion){
         List<String> notes = new ArrayList<>();
         notes.add("Last loaded with " + QPlugin.getName() + " v" + QPlugin.getVersion());
-        if(yamlConfiguration.contains("schema-version")) {
-            yamlConfiguration.set("schema-version", schemaVersion);
-        }
         yamlConfiguration.setComments("schema-version", notes);
         save();
+    }
+
+    public boolean validateSchema(){
+        if(!yamlConfiguration.contains("schema-version")) {
+            yamlConfiguration.set("schema-version", schemaVersion);
+        }
+        loadSchemaVersion();
+        QLogger.info("schema: " + schemaVersion);
+        return schemaVersion >= minSupportedScema;
     }
 
     public void save(){
@@ -65,8 +76,21 @@ public abstract class QConfiguration {
         }
     }
 
+    public void reload(){
+        loadFile();
+        loadAllData();
+    }
+
     abstract void loadAllData();
     abstract void saveAllData();
+
+    public void loadSchemaVersion(){
+        this.schemaVersion = getNumber("schema-version").doubleValue();
+    }
+
+    public double getSchema(){
+        return this.schemaVersion;
+    }
 
     public @Nullable Object get(String path){
         return yamlConfiguration.get(path);
@@ -88,19 +112,15 @@ public abstract class QConfiguration {
         String rawData = data.toString();
         Number number = null;
         try {
-            number = Float.parseFloat(rawData);
-        } catch(NumberFormatException e) {
+            number = Double.parseDouble(rawData);
+        } catch(NumberFormatException e1) {
             try {
-                number = Double.parseDouble(rawData);
-            } catch(NumberFormatException e1) {
+                number = Integer.parseInt(rawData);
+            } catch(NumberFormatException e2) {
                 try {
-                    number = Integer.parseInt(rawData);
-                } catch(NumberFormatException e2) {
-                    try {
-                        number = Long.parseLong(rawData);
-                    } catch(NumberFormatException e3) {
-                        return 0;
-                    }
+                    number = Long.parseLong(rawData);
+                } catch(NumberFormatException e3) {
+                    return 0;
                 }
             }
         }
