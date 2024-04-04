@@ -1,36 +1,20 @@
 package gg.quartzdev.qtemplateplugin.storage;
 
-import org.bukkit.World;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import gg.quartzdev.lib.qlibpaper.storage.QConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class Config extends QConfiguration {
-
-    private final String PATH_DISABLED_WORLDS = "disabled-worlds";
-    private List<World> disabledWorlds;
-
-    public Config(String fileName) {
-        super(fileName);
-        disabledWorlds = new ArrayList<>();
+    public Config(JavaPlugin plugin, String fileName) {
+        super(plugin, fileName);
     }
 
-    public void loadAllData(){
-        loadDisabledWorlds();
-    }
-    public void saveAllData(){
-        saveDisabledWorlds();
+    @Override
+    public void loadAllData() {
+
     }
 
-    public void loadDisabledWorlds(){
-        disabledWorlds = getWorldList(PATH_DISABLED_WORLDS);
-    }
-    public boolean isDisabledWorld(World world){
-        return disabledWorlds.contains(world);
-    }
-    public void saveDisabledWorlds(){
-        List<String> worldNames = disabledWorlds.stream().map(World::getName).collect(Collectors.toList());
-        yamlConfiguration.set(PATH_DISABLED_WORLDS, worldNames);
+    @Override
+    public void saveAllData() {
+
     }
 }

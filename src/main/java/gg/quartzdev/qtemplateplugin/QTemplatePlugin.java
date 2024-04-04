@@ -1,17 +1,18 @@
 package gg.quartzdev.qtemplateplugin;
 
-import gg.quartzdev.qtemplateplugin.util.QPlugin;
+import gg.quartzdev.qtemplateplugin.storage.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class QTemplatePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        QPlugin.enable(this, true, -1);
+        QTemplateAPI.enable(this, -1);
+
     }
 
     @Override
     public void onDisable() {
-        QPlugin.disable();
+        QTemplateAPI.disable();
     }
 }
