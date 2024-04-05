@@ -1,12 +1,19 @@
 package gg.quartzdev.qtemplateplugin;
 
+import gg.quartzdev.lib.qlibpaper.QPerm;
 import gg.quartzdev.lib.qlibpaper.QPluginAPI;
 import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.lib.qlibpaper.QLogger;
+import gg.quartzdev.qtemplateplugin.commands.CMD;
+import gg.quartzdev.qtemplateplugin.commands.CMDreload;
+import gg.quartzdev.qtemplateplugin.commands.CMDset;
 import gg.quartzdev.qtemplateplugin.storage.Config;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class QTemplateAPI implements QPluginAPI {
     private static QTemplateAPI apiInstance;
@@ -61,11 +68,14 @@ public class QTemplateAPI implements QPluginAPI {
 //        Clears instances
         apiInstance = null;
         pluginInstance = null;
-        metrics = null;
-        commandMap.unregisterAll();
-        commandMap = null;
-        metrics.shutdown();
-        metrics = null;
+        if(commandMap != null){
+            commandMap.unregisterAll();
+            commandMap = null;
+        }
+        if(metrics != null){
+            metrics.shutdown();
+            metrics = null;
+        }
 
 //        Stops async tasks
 //        ...
@@ -80,8 +90,15 @@ public class QTemplateAPI implements QPluginAPI {
         return pluginInstance.getName();
     }
 
+    public void setupMetrics(int pluginId){
+
+    }
+
     public void registerCommands(){
         commandMap = new QCommandMap();
+        commandMap.create(pluginInstance.getName(), new CMD("", QPerm.GROUP_PLAYER), List.of("template", "kekw"));
+        commandMap.addSubCommand(pluginInstance.getName(), new CMDreload("reload", QPerm.GROUP_ADMIN));
+        commandMap.addSubCommand(pluginInstance.getName(), new CMDset("set", QPerm.GROUP_ADMIN));
     }
 
     public void registerListeners(){
