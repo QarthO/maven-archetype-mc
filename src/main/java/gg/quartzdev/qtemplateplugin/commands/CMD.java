@@ -11,8 +11,8 @@ public class CMD extends QCommand {
     }
 
     @Override
-    public boolean logic(CommandSender commandSender, String s, String[] strings) {
-        Sender.message(commandSender, "<green>" + QTemplateAPI.getName() + " v" + QTemplateAPI.getVersion());
+    public boolean logic(CommandSender sender, String label, String[] args) {
+        Sender.message(sender, "<green>" + QTemplateAPI.getName() + " v" + QTemplateAPI.getVersion());
         return true;
     }
 
