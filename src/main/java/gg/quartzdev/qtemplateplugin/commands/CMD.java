@@ -2,7 +2,7 @@ package gg.quartzdev.qtemplateplugin.commands;
 
 import gg.quartzdev.lib.qlibpaper.Sender;
 import gg.quartzdev.lib.qlibpaper.commands.QCommand;
-import gg.quartzdev.qtemplateplugin.QTemplateAPI;
+import gg.quartzdev.qtemplateplugin.TemplateAPI;
 import org.bukkit.command.CommandSender;
 
 public class CMD extends QCommand {
@@ -12,7 +12,7 @@ public class CMD extends QCommand {
 
     @Override
     public boolean logic(CommandSender sender, String label, String[] args) {
-        Sender.message(sender, "<green>" + QTemplateAPI.getName() + " v" + QTemplateAPI.getVersion());
+        Sender.message(sender, "<green>" + TemplateAPI.getName() + " v" + TemplateAPI.getVersion());
         return true;
     }
 

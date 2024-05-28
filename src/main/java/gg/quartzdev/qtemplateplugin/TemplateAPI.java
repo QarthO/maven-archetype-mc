@@ -12,11 +12,10 @@ import gg.quartzdev.qtemplateplugin.storage.Config;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class QTemplateAPI implements QPluginAPI {
-    private static QTemplateAPI apiInstance;
+public class TemplateAPI implements QPluginAPI {
+    private static TemplateAPI apiInstance;
     private static QTemplatePlugin pluginInstance;
     private static QCommandMap commandMap;
     private static Metrics metrics;
@@ -30,11 +29,11 @@ public class QTemplateAPI implements QPluginAPI {
         return config;
     }
 
-    private QTemplateAPI(){
+    private TemplateAPI(){
 
     }
 
-    private QTemplateAPI(QTemplatePlugin plugin, int bStatsPluginId){
+    private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId){
         pluginInstance = plugin;
 
         if(bStatsPluginId > 0){
@@ -51,7 +50,7 @@ public class QTemplateAPI implements QPluginAPI {
             QLogger.error(GenericMessages.ERROR_PLUGIN_ENABLE);
             return;
         }
-        apiInstance = new QTemplateAPI(plugin, bStatsPluginId);
+        apiInstance = new TemplateAPI(plugin, bStatsPluginId);
     }
 
     protected static void disable(){
