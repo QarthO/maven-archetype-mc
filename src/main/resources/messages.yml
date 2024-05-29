@@ -13,7 +13,7 @@
 # Web Viewer: https://webui.advntr.dev
 
 # What <prefix> tag is replaced with
-CHAT_PREFIX: "<aqua>ClaimBlocks <bold><gray>></bold>"
+CHAT_PREFIX: "<aqua>TemplatePlugin <bold><gray>></bold>"
 
 # Player attempts to run a command they don't have permission for
 ERROR_NO_PERMISSION: "<prefix> <red>Error: You don't have permission to perform this"

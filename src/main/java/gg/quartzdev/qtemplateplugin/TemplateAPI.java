@@ -19,8 +19,8 @@ import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class TemplateAPI implements QPluginAPI {
-    private final String CONSOLE_PREFIX = "<white>[<red>qGP<white>-<aqua>ClaimBlocks<white>]";
-    private final String CHAT_PREFIX = "<red>qGP<white>-<aqua>ClaimBlocks <bold><gray>>></bold>";
+    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>TemplatePlugin<white>]";
+    private final String CHAT_PREFIX = "<red>q<aqua>TemplatePlugin <bold><gray>>></bold>";
     private final String MODRINTH_SLUG = "qtemplate";
     private final String MODRINTH_LOADER = "paper";
 
