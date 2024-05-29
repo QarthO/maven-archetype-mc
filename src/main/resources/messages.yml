@@ -26,4 +26,4 @@ CMD_NOT_FOUND: "<prefix> <red>Unknown command: <yellow><command>"
 
 # Player sends incorrect syntax for a command
 # Note: <label> is replaced with whatever the command label the player used (includes aliases)
-SYNTAX_COMMAND: "<prefix> <red>Syntax: /<label> command <value>"
+#SYNTAX_COMMAND: "<prefix> <red>Syntax: /<label> command <value>"
