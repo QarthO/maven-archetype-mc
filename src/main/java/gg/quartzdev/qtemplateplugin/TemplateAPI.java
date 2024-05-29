@@ -5,46 +5,70 @@ import gg.quartzdev.lib.qlibpaper.QPluginAPI;
 import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.lib.qlibpaper.QLogger;
+import gg.quartzdev.metrics.bukkit.Metrics;
 import gg.quartzdev.qtemplateplugin.commands.CMD;
 import gg.quartzdev.qtemplateplugin.commands.CMDreload;
-import gg.quartzdev.qtemplateplugin.commands.CMDset;
-import gg.quartzdev.qtemplateplugin.storage.Config;
-import org.bstats.bukkit.Metrics;
+import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
+import gg.quartzdev.qtemplateplugin.listeners.UpdateCheckerListener;
+import gg.quartzdev.qtemplateplugin.storage.ConfigPath;
+import gg.quartzdev.qtemplateplugin.storage.YMLconfig;
+import gg.quartzdev.qtemplateplugin.util.Messages;
 import org.bukkit.Bukkit;
 
 import java.util.List;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class TemplateAPI implements QPluginAPI {
+    private final String CONSOLE_PREFIX = "<white>[<red>qGP<white>-<aqua>ClaimBlocks<white>]";
+    private final String CHAT_PREFIX = "<red>qGP<white>-<aqua>ClaimBlocks <bold><gray>>></bold>";
+    private final String MODRINTH_SLUG = "qtemplate";
+    private final String MODRINTH_LOADER = "paper";
+
     private static TemplateAPI apiInstance;
     private static QTemplatePlugin pluginInstance;
+    private static Messages messages;
     private static QCommandMap commandMap;
-    private static Metrics metrics;
-    private static Config config;
+    private static gg.quartzdev.metrics.bukkit.Metrics metrics;
+    private static YMLconfig config;
 
     public static QTemplatePlugin getPlugin(){
         return pluginInstance;
     }
 
-    public static Config getConfig(){
+    public static YMLconfig getConfig(){
         return config;
     }
 
     private TemplateAPI(){
-
     }
 
     private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId){
+
+//        Used to get plugin instance in other classes
         pluginInstance = plugin;
 
+//        Initializes custom logger
+        QLogger.init(pluginInstance.getComponentLogger());
+
+//        Loads custom messages defined in messages.yml
+        setupMessages();
+
+//        Sets up bStats metrics
         if(bStatsPluginId > 0){
             setupMetrics(bStatsPluginId);
         }
 
-        registerCommands();
-        registerListeners();
+//        Sets up config.yml
         setupConfig();
+
+//        Initializes bukkit event listeners
+        registerListeners();
+
+//        Registers all commands
+        registerCommands();
     }
 
+    @SuppressWarnings("SameParameterValue")
     protected static void enable(QTemplatePlugin plugin, int bStatsPluginId){
         if(apiInstance != null){
             QLogger.error(GenericMessages.ERROR_PLUGIN_ENABLE);
@@ -55,18 +79,13 @@ public class TemplateAPI implements QPluginAPI {
 
     protected static void disable(){
 
-//        Warns about reloading/plugin managers
-        final boolean isStopping = Bukkit.getServer().isStopping();
-        if(!isStopping){
-            QLogger.error(GenericMessages.PLUGIN_UNSAFE_DISABLE);
-        }
-
 //        Logs plugin is being disabled
         QLogger.info(GenericMessages.PLUGIN_DISABLE);
 
 //        Clears instances
         apiInstance = null;
         pluginInstance = null;
+        config = null;
         if(commandMap != null){
             commandMap.unregisterAll();
             commandMap = null;
@@ -90,22 +109,35 @@ public class TemplateAPI implements QPluginAPI {
     }
 
     public void setupMetrics(int pluginId){
-
+        metrics = new Metrics(pluginInstance, pluginId);
     }
 
     public void registerCommands(){
         commandMap = new QCommandMap();
-        commandMap.create(pluginInstance.getName(), new CMD("", QPerm.GROUP_PLAYER), List.of("template", "kekw"));
-        commandMap.addSubCommand(pluginInstance.getName(), new CMDreload("reload", QPerm.GROUP_ADMIN));
-        commandMap.addSubCommand(pluginInstance.getName(), new CMDset("set", QPerm.GROUP_ADMIN));
+        String label = "qclaimblocks";
+        commandMap.create(label, new CMD("", QPerm.GROUP_PLAYER), List.of("claimblocks", "cb"));
+        commandMap.addSubCommand(label, new CMDreload("reload", QPerm.GROUP_ADMIN));
     }
 
     public void registerListeners(){
-
+        Bukkit.getPluginManager().registerEvents(new ExampleListener(), pluginInstance);
+        if(config.get(ConfigPath.CHECK_UPDATES, true)){
+            setupUpdater(MODRINTH_SLUG, MODRINTH_LOADER);
+        }
     }
 
     public void setupConfig(){
-        config = new Config(pluginInstance, "config.yml");
+        config = new YMLconfig(pluginInstance, "config.yml");
+    }
+    public void setupMessages(){
+        messages = new Messages(CONSOLE_PREFIX, CHAT_PREFIX);
+    }
+    public static void loadCustomMessages(){
+        messages.reload();
+    }
+
+    public void setupUpdater(String slug, String loader){
+        Bukkit.getPluginManager().registerEvents(new UpdateCheckerListener(slug, loader), pluginInstance);
     }
 
 }
