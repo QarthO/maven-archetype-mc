@@ -6,19 +6,24 @@ import gg.quartzdev.lib.qlibpaper.storage.QConfiguration;
 import gg.quartzdev.qtemplateplugin.util.Messages;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class YMLmessages extends QConfiguration {
+public class YMLmessages extends QConfiguration
+{
 
-    public YMLmessages(JavaPlugin plugin, String fileName) {
+    public YMLmessages(JavaPlugin plugin, String fileName)
+    {
         super(plugin, fileName, false);
         loadAllData();
     }
 
     @Override
-    public void loadAllData() {
+    public void loadAllData()
+    {
         QLogger.info("<prefix> Loading messages");
-        for(String key : yamlConfiguration.getKeys(false)){
+        for (String key : yamlConfiguration.getKeys(false))
+        {
             QMessage message = Messages.getCustomMessage(key);
-            if(message == null){
+            if (message == null)
+            {
                 QLogger.error(Messages.ERROR_UPDATE_MESSAGE.parse("key", key));
                 continue;
             }
@@ -27,7 +32,8 @@ public class YMLmessages extends QConfiguration {
     }
 
     @Override
-    public void saveAllData() {
+    public void saveAllData()
+    {
 
     }
 }

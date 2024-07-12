@@ -1,10 +1,11 @@
 package gg.quartzdev.qtemplateplugin;
 
+import com.zaxxer.hikari.HikariConfig;
+import gg.quartzdev.lib.qlibpaper.QLogger;
 import gg.quartzdev.lib.qlibpaper.QPerm;
 import gg.quartzdev.lib.qlibpaper.QPluginAPI;
 import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
-import gg.quartzdev.lib.qlibpaper.QLogger;
 import gg.quartzdev.metrics.bukkit.Metrics;
 import gg.quartzdev.qtemplateplugin.commands.CMD;
 import gg.quartzdev.qtemplateplugin.commands.CMDreload;
@@ -18,31 +19,25 @@ import org.bukkit.Bukkit;
 import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class TemplateAPI implements QPluginAPI {
-    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>TemplatePlugin<white>]";
-    private final String CHAT_PREFIX = "<red>q<aqua>TemplatePlugin <bold><gray>>></bold>";
-    private final String MODRINTH_SLUG = "qtemplate";
-    private final String MODRINTH_LOADER = "paper";
-
+public class TemplateAPI implements QPluginAPI
+{
     private static TemplateAPI apiInstance;
     private static QTemplatePlugin pluginInstance;
     private static Messages messages;
     private static QCommandMap commandMap;
     private static gg.quartzdev.metrics.bukkit.Metrics metrics;
     private static YMLconfig config;
+    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>TemplatePlugin<white>]";
+    private final String CHAT_PREFIX = "<red>q<aqua>TemplatePlugin <bold><gray>>></bold>";
+    private final String MODRINTH_SLUG = "qtemplate";
+    private final String MODRINTH_LOADER = "paper";
 
-    public static QTemplatePlugin getPlugin(){
-        return pluginInstance;
+    private TemplateAPI()
+    {
     }
 
-    public static YMLconfig getConfig(){
-        return config;
-    }
-
-    private TemplateAPI(){
-    }
-
-    private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId){
+    private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId)
+    {
 
 //        Used to get plugin instance in other classes
         pluginInstance = plugin;
@@ -54,7 +49,8 @@ public class TemplateAPI implements QPluginAPI {
         setupMessages();
 
 //        Sets up bStats metrics
-        if(bStatsPluginId > 0){
+        if (bStatsPluginId > 0)
+        {
             setupMetrics(bStatsPluginId);
         }
 
@@ -68,16 +64,29 @@ public class TemplateAPI implements QPluginAPI {
         registerCommands();
     }
 
+    public static QTemplatePlugin getPlugin()
+    {
+        return pluginInstance;
+    }
+
+    public static YMLconfig getConfig()
+    {
+        return config;
+    }
+
     @SuppressWarnings("SameParameterValue")
-    protected static void enable(QTemplatePlugin plugin, int bStatsPluginId){
-        if(apiInstance != null){
+    protected static void enable(QTemplatePlugin plugin, int bStatsPluginId)
+    {
+        if (apiInstance != null)
+        {
             QLogger.error(GenericMessages.ERROR_PLUGIN_ENABLE);
             return;
         }
         apiInstance = new TemplateAPI(plugin, bStatsPluginId);
     }
 
-    protected static void disable(){
+    protected static void disable()
+    {
 
 //        Logs plugin is being disabled
         QLogger.info(GenericMessages.PLUGIN_DISABLE);
@@ -86,57 +95,81 @@ public class TemplateAPI implements QPluginAPI {
         apiInstance = null;
         pluginInstance = null;
         config = null;
-        if(commandMap != null){
+        if (commandMap != null)
+        {
             commandMap.unregisterAll();
             commandMap = null;
         }
-        if(metrics != null){
+        if (metrics != null)
+        {
             metrics.shutdown();
             metrics = null;
         }
+
+        HikariConfig config = new HikariConfig();
+        String host = "localhost";
+        int port = 3306;
+        String name = "test";
+        String username = "root";
+        String password = "test";
+        config.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + name);
+        config.setUsername(username);
+        config.setPassword(password);
 
 //        Stops async tasks
 //        ...
     }
 
     @SuppressWarnings("UnstableApiUsage")
-    public static String getVersion(){
+    public static String getVersion()
+    {
         return pluginInstance.getPluginMeta().getVersion();
     }
 
-    public static String getName(){
+    public static String getName()
+    {
         return pluginInstance.getName();
     }
 
-    public void setupMetrics(int pluginId){
+    public static void loadCustomMessages()
+    {
+        messages.reload();
+    }
+
+    public void setupMetrics(int pluginId)
+    {
         metrics = new Metrics(pluginInstance, pluginId);
     }
 
-    public void registerCommands(){
+    public void registerCommands()
+    {
         commandMap = new QCommandMap();
         String label = "qclaimblocks";
         commandMap.create(label, new CMD("", QPerm.GROUP_PLAYER), List.of("claimblocks", "cb"));
         commandMap.addSubCommand(label, new CMDreload("reload", QPerm.GROUP_ADMIN));
     }
 
-    public void registerListeners(){
+    public void registerListeners()
+    {
         Bukkit.getPluginManager().registerEvents(new ExampleListener(), pluginInstance);
-        if(config.get(ConfigPath.CHECK_UPDATES, true)){
+        if (config.get(ConfigPath.CHECK_UPDATES, true))
+        {
             setupUpdater(MODRINTH_SLUG, MODRINTH_LOADER);
         }
     }
 
-    public void setupConfig(){
+    public void setupConfig()
+    {
         config = new YMLconfig(pluginInstance, "config.yml");
     }
-    public void setupMessages(){
+
+    public void setupMessages()
+    {
         messages = new Messages(CONSOLE_PREFIX, CHAT_PREFIX);
     }
-    public static void loadCustomMessages(){
-        messages.reload();
-    }
 
-    public void setupUpdater(String slug, String loader){
+    public void setupUpdater(String slug, String loader)
+    {
         Bukkit.getPluginManager().registerEvents(new UpdateCheckerListener(slug, loader), pluginInstance);
     }
 
