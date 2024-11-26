@@ -6,7 +6,7 @@
             <includes>
                 <include>**/*</include>
                 <include>.gitignore</include>
-                <include>.github/workflows/package-maven.yml</include>
+                <include>.github/**/*</include>
             </includes>
         </fileSet>
     </fileSets>

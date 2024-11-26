@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="moved template project files to template folder">
+    <list default="true" id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="try adding .gitignore and .github">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype-metadata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype-metadata.xml" afterDir="false" />
     </list>
@@ -309,11 +309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1732622622450</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="try adding .gitignore and .github">
+      <option name="closed" value="true" />
+      <created>1732623229944</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732623229944</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="added actions, more work on config template" />
     <MESSAGE value="setup example listener, and metrics" />
     <MESSAGE value="strip everything out of the main class" />
@@ -338,6 +345,7 @@
     <MESSAGE value="switch template to maven archetype" />
     <MESSAGE value="change default directory" />
     <MESSAGE value="moved template project files to template folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved template project files to template folder" />
+    <MESSAGE value="try adding .gitignore and .github" />
+    <option name="LAST_COMMIT_MESSAGE" value="try adding .gitignore and .github" />
   </component>
 </project>
