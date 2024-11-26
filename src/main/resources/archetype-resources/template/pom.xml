@@ -9,7 +9,7 @@
     <version>${version}</version>
     <packaging>jar</packaging>
 
-    <name>qTemplatePlugin</name>
+    <name>${name}</name>
 
     <properties>
         <java.version>21</java.version>

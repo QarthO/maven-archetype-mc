@@ -2,10 +2,13 @@
         name="maven-archetype-mc">
     <fileSets>
         <fileSet filtered="true" packaged="true">
-            <directory>/</directory>
+            <directory>template</directory>
             <includes>
                 <include>**/*</include>
             </includes>
         </fileSet>
     </fileSets>
+    <requiredProperties>
+        <requiredProperty key="name"/>
+    </requiredProperties>
 </archetype-descriptor>
