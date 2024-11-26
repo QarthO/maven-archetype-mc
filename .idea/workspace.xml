@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="change default directory">
+    <list default="true" id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="moved template project files to template folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype-metadata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype-metadata.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/qRemoteEnchanting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/qRemoteEnchanting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/qTemplatePlugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/qTemplatePlugin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/LibraryLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/LibraryLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/QTemplatePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/QTemplatePlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/TemplateAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/TemplateAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/commands/CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/commands/CMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/commands/CMDreload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/commands/CMDreload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/listeners/ExampleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/listeners/ExampleListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/listeners/UpdateCheckerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/listeners/UpdateCheckerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/storage/ConfigPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/storage/ConfigPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/storage/YMLconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/storage/YMLconfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/storage/YMLmessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/storage/YMLmessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/gg/quartzdev/qtemplateplugin/util/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/java/gg/quartzdev/qtemplateplugin/util/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/resources/messages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/resources/paper-plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/template/src/main/resources/paper-plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732621402077</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="moved template project files to template folder">
+      <option name="closed" value="true" />
+      <created>1732622622450</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1732622622450</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -358,6 +337,7 @@
     <MESSAGE value="updated formatting" />
     <MESSAGE value="switch template to maven archetype" />
     <MESSAGE value="change default directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="change default directory" />
+    <MESSAGE value="moved template project files to template folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved template project files to template folder" />
   </component>
 </project>

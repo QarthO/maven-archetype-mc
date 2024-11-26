@@ -5,6 +5,8 @@
             <directory>template</directory>
             <includes>
                 <include>**/*</include>
+                <include>.gitignore</include>
+                <include>.github/workflows/package-maven.yml</include>
             </includes>
         </fileSet>
     </fileSets>
