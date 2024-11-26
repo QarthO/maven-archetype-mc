@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="switch template to maven archetype" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;QarthO&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/QarthO/qTemplate.git&quot;,
+    &quot;accountId&quot;: &quot;45faca7f-45b1-4ec1-9554-5ad303d236d0&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2QNXhjT3xCknziXo3AiMiSVaVjn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.qTemplatePlugin package.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/derek/quartzdev-gg/mc-dev/paper-plugins/_TEMPLATE/qTemplate&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.27624872&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="qTemplatePlugin" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="qTemplatePlugin" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="qTemplatePlugin package" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6bbd7f26-ec6f-466b-ba2f-6351dde5de48" name="Changes" comment="" />
+      <created>1685195134077</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685195134077</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1709082436231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709082436231</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added actions, more work on config template">
+      <option name="closed" value="true" />
+      <created>1709261922452</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709261922452</updated>
+    </task>
+    <task id="LOCAL-00003" summary="setup example listener, and metrics">
+      <option name="closed" value="true" />
+      <created>1709318238589</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709318238589</updated>
+    </task>
+    <task id="LOCAL-00004" summary="strip everything out of the main class">
+      <option name="closed" value="true" />
+      <created>1709732843683</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709732843683</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed default config">
+      <option name="closed" value="true" />
+      <created>1709977835565</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709977835566</updated>
+    </task>
+    <task id="LOCAL-00006" summary="cleaned up logging, added a proper readme">
+      <option name="closed" value="true" />
+      <created>1710160619155</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710160619155</updated>
+    </task>
+    <task id="LOCAL-00007" summary="less html in readme, now using variables">
+      <option name="closed" value="true" />
+      <created>1710162222831</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710162222831</updated>
+    </task>
+    <task id="LOCAL-00008" summary="setup generic command structure">
+      <option name="closed" value="true" />
+      <created>1710331180256</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710331180256</updated>
+    </task>
+    <task id="LOCAL-00009" summary="made test command">
+      <option name="closed" value="true" />
+      <created>1710333210390</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333210390</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix config loading/saving and added reload command">
+      <option name="closed" value="true" />
+      <created>1710502422447</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710502422447</updated>
+    </task>
+    <task id="LOCAL-00011" summary="restructuring to use qlib-paper library, (still not functioning)">
+      <option name="closed" value="true" />
+      <created>1712269224947</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712269224947</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added example commands and config">
+      <option name="closed" value="true" />
+      <created>1712288467710</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712288467710</updated>
+    </task>
+    <task id="LOCAL-00013" summary="renamed variables, updated pom">
+      <option name="closed" value="true" />
+      <created>1712524241224</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712524241224</updated>
+    </task>
+    <task id="LOCAL-00014" summary="begin rewrite">
+      <option name="closed" value="true" />
+      <created>1716931235303</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931235303</updated>
+    </task>
+    <task id="LOCAL-00015" summary="overhaul of the template using updated qlib-paper">
+      <option name="closed" value="true" />
+      <created>1716960525620</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716960525620</updated>
+    </task>
+    <task id="LOCAL-00016" summary="use java 21">
+      <option name="closed" value="true" />
+      <created>1716961006130</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716961006130</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update prefix">
+      <option name="closed" value="true" />
+      <created>1716961385023</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716961385023</updated>
+    </task>
+    <task id="LOCAL-00018" summary="comment out syntax in messages">
+      <option name="closed" value="true" />
+      <created>1716961531044</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716961531044</updated>
+    </task>
+    <task id="LOCAL-00019" summary="version">
+      <option name="closed" value="true" />
+      <created>1716965606396</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716965606396</updated>
+    </task>
+    <task id="LOCAL-00020" summary="updated links in readme">
+      <option name="closed" value="true" />
+      <created>1716966610954</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716966610954</updated>
+    </task>
+    <task id="LOCAL-00021" summary="1.21 and update dependencies">
+      <option name="closed" value="true" />
+      <created>1720797567197</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1720797567197</updated>
+    </task>
+    <task id="LOCAL-00022" summary="updated formatting">
+      <option name="closed" value="true" />
+      <created>1720797648490</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720797648490</updated>
+    </task>
+    <task id="LOCAL-00023" summary="switch template to maven archetype">
+      <option name="closed" value="true" />
+      <created>1732619709782</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732619709782</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="added actions, more work on config template" />
+    <MESSAGE value="setup example listener, and metrics" />
+    <MESSAGE value="strip everything out of the main class" />
+    <MESSAGE value="fixed default config" />
+    <MESSAGE value="cleaned up logging, added a proper readme" />
+    <MESSAGE value="less html in readme, now using variables" />
+    <MESSAGE value="setup generic command structure" />
+    <MESSAGE value="made test command" />
+    <MESSAGE value="fix config loading/saving and added reload command" />
+    <MESSAGE value="restructuring to use qlib-paper library, (still not functioning)" />
+    <MESSAGE value="added example commands and config" />
+    <MESSAGE value="renamed variables, updated pom" />
+    <MESSAGE value="begin rewrite" />
+    <MESSAGE value="overhaul of the template using updated qlib-paper" />
+    <MESSAGE value="use java 21" />
+    <MESSAGE value="update prefix" />
+    <MESSAGE value="comment out syntax in messages" />
+    <MESSAGE value="version" />
+    <MESSAGE value="updated links in readme" />
+    <MESSAGE value="1.21 and update dependencies" />
+    <MESSAGE value="updated formatting" />
+    <MESSAGE value="switch template to maven archetype" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch template to maven archetype" />
+  </component>
+</project>
