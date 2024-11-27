@@ -1,16 +1,48 @@
 <archetype-descriptor
         name="maven-archetype-mc">
     <fileSets>
-        <fileSet filtered="true" packaged="true">
-            <directory>template</directory>
+        <!--        Include project description files-->
+        <fileSet filtered="true" packaged="false">
+            <directory></directory>
             <includes>
-                <include>**/*</include>
-                <include>.gitignore</include>
-                <include>.github/**/*</include>
+                <inclue>.gitignore</inclue>
+                <include>LICENSE</include>
+                <include>README.md</include>
             </includes>
+            <outputDirectory>.</outputDirectory>
+        </fileSet>
+
+<!--        Include all plugin sources-->
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+<!--        Include all plugin resources-->
+        <fileSet filtered="true" packaged="false">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*</include> <!-- Include all files in resources -->
+            </includes>
+        </fileSet>
+
+<!--        Include GitHub Actions Workflows-->
+        <fileSet filtered="true" packaged="false">
+            <directory>.github/workflows</directory>
+            <includes>
+                <include>*.yml</include>
+            </includes>
+            <outputDirectory>.github/workflows</outputDirectory>
         </fileSet>
     </fileSets>
     <requiredProperties>
-        <requiredProperty key="name"/>
+        <requiredProperty key="bukkitApiVersion">
+            <defaultValue>1.21</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="qlibPaperVersion">
+            <defaultValue>1.0.0-beta4</defaultValue>
+        </requiredProperty>
     </requiredProperties>
 </archetype-descriptor>
