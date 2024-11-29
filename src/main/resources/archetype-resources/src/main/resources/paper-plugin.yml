@@ -1,0 +1,5 @@
+name: ${name}
+version: '${project.version}'
+main: ${groupId}.${artifactId}.${name}
+api-version: ${bukkitApiVersion}
+loader: ${groupId}.${artifactId}.LibraryLoader
