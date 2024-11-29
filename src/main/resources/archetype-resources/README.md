@@ -30,7 +30,7 @@
 This plugin uses [bStats][bstats-url]. You can opt-out in the bStats config
 <div align="center">
 
-[![bStats for qTemplate Plugin][bstats-plugin-svg]][bstats-plugin-url]
+[![bStats for ${artifactId} Plugin][bstats-plugin-svg]][bstats-plugin-url]
 </div>
 
 

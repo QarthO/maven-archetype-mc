@@ -38,11 +38,7 @@
         </fileSet>
     </fileSets>
     <requiredProperties>
-        <requiredProperty key="bukkitApiVersion">
-            <defaultValue>1.21</defaultValue>
-        </requiredProperty>
-        <requiredProperty key="qlibPaperVersion">
-            <defaultValue>1.0.0-beta4</defaultValue>
-        </requiredProperty>
+        <requiredProperty key="bukkitApiVersion" defaultValue="1.21"/>
+        <requiredProperty key="qlibPaperVersion" defaultValue="1.0.0-beta4"/>
     </requiredProperties>
 </archetype-descriptor>

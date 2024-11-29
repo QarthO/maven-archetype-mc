@@ -1,8 +1,8 @@
 ##################################################################
 # +------------------------------------------------------------+ #
-# |                   qTemplate Config                         | #
-# |   Source:   https://github.com/QarthO/qTemplate/           | #
-# |   Download: https://modrinth.com/plugin/qTemplate/         | #
+# |                   ${artifactId} Config                         | #
+# |   Source:   https://github.com/QarthO/${artifactId}/           | #
+# |   Download: https://modrinth.com/plugin/${artifactId}/         | #
 # |   Donate:   https://quartzdev.gg/donate/                   | #
 # |   Discord:  https://quartzdev.gg/discord/                  | #
 # +------------------------------------------------------------+ #

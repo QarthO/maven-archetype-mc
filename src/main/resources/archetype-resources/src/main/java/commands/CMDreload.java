@@ -3,7 +3,7 @@ package ${package}.commands;
 import gg.quartzdev.lib.qlibpaper.Sender;
 import gg.quartzdev.lib.qlibpaper.commands.QCommand;
 import gg.quartzdev.lib.qlibpaper.lang.QPlaceholder;
-import ${package}.TemplateAPI;
+import ${package}.${artifactId}API;
 import ${package}.util.Messages;
 import org.bukkit.command.CommandSender;
 
@@ -40,13 +40,13 @@ public class CMDreload extends QCommand
 
     public void reloadConfig(CommandSender sender)
     {
-        TemplateAPI.getConfig().reload();
+        ${artifactId}API.getConfig().reload();
         Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE, "config"));
     }
 
     public void reloadMessages(CommandSender sender)
     {
-        TemplateAPI.loadCustomMessages();
+        ${artifactId}API.loadCustomMessages();
         Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE, "messages"));
     }
 }

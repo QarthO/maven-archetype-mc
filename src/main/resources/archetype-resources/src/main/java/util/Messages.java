@@ -2,7 +2,7 @@ package ${package}.util;
 
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.lib.qlibpaper.lang.QMessage;
-import ${package}.TemplateAPI;
+import ${package}.${artifactId}API;
 import ${package}.storage.YMLmessages;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,7 +45,7 @@ public class Messages extends GenericMessages
     public Messages(String consolePrefix, String chatPrefix)
     {
         super(consolePrefix, chatPrefix);
-        messagesFile = new YMLmessages(TemplateAPI.getPlugin(), "messages.yml");
+        messagesFile = new YMLmessages(${artifactId}API.getPlugin(), "messages.yml");
     }
 
     /**

@@ -2,7 +2,7 @@ package ${package};
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class QTemplatePlugin extends JavaPlugin
+public final class ${artifactId} extends JavaPlugin
 {
 
     @Override
@@ -12,13 +12,13 @@ public final class QTemplatePlugin extends JavaPlugin
 //        ConfigurationSerialization.registerClass(PUT_CLASS_HERE.class);
 
 //        Enables the plugin
-        TemplateAPI.enable(this, -1);
+        ${artifactId}API.enable(this, -1);
 
     }
 
     @Override
     public void onDisable()
     {
-        TemplateAPI.disable();
+        ${artifactId}API.disable();
     }
 }

@@ -1,7 +1,7 @@
 package ${package}.listeners;
 
 import gg.quartzdev.lib.qlibpaper.UpdateChecker;
-import ${package}.TemplateAPI;
+import ${package}.${artifactId}API;
 import ${package}.storage.ConfigPath;
 import ${package}.storage.YMLconfig;
 import org.bukkit.entity.Player;
@@ -18,7 +18,7 @@ public class UpdateCheckerListener implements Listener
     public UpdateCheckerListener(String slug, String loader)
     {
         updateChecker = new UpdateChecker(slug, loader);
-        config = TemplateAPI.getConfig();
+        config = ${artifactId}API.getConfig();
         if (config.get(ConfigPath.CHECK_UPDATES, true))
         {
             checkForUpdates(null);
@@ -27,7 +27,7 @@ public class UpdateCheckerListener implements Listener
 
     public void checkForUpdates(Player player)
     {
-        updateChecker.checkForUpdatesAsync(TemplateAPI.getPlugin(), TemplateAPI.getVersion(), player);
+        updateChecker.checkForUpdatesAsync(${artifactId}API.getPlugin(), ${artifactId}API.getVersion(), player);
     }
 
     @EventHandler

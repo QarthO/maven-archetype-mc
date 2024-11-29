@@ -7,35 +7,35 @@ import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.metrics.bukkit.Metrics;
 import ${package}.commands.CMD;
-import ${package}.commands.CMDreload;
-import ${package}.listeners.ExampleListener;
-import ${package}.listeners.UpdateCheckerListener;
-import ${package}.storage.ConfigPath;
-import ${package}.storage.YMLconfig;
-import ${package}.util.Messages;
+{package}.commands.CMDreload;
+{package}.listeners.ExampleListener;
+{package}.listeners.UpdateCheckerListener;
+{package}.storage.ConfigPath;
+{package}.storage.YMLconfig;
+{package}.util.Messages;
 import org.bukkit.Bukkit;
 
 import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class TemplateAPI implements QPluginAPI
+public class ${artifactId}API implements QPluginAPI
 {
-    private static TemplateAPI apiInstance;
-    private static QTemplatePlugin pluginInstance;
+    private static ${artifactId}API apiInstance;
+    private static ${artifactId} pluginInstance;
     private static Messages messages;
     private static QCommandMap commandMap;
     private static gg.quartzdev.metrics.bukkit.Metrics metrics;
     private static YMLconfig config;
-    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>TemplatePlugin<white>]";
-    private final String CHAT_PREFIX = "<red>q<aqua>TemplatePlugin <bold><gray>>></bold>";
-    private final String MODRINTH_SLUG = "qtemplate";
+    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>${artifactId}<white>]";
+    private final String CHAT_PREFIX = "<red>q<aqua>${artifactId} <bold><gray>>></bold>";
+    private final String MODRINTH_SLUG = "${artifactId}".toLowerCase();
     private final String MODRINTH_LOADER = "paper";
 
-    private TemplateAPI()
+    private ${artifactId}API()
     {
     }
 
-    private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId)
+    private ${artifactId}API(${artifactId} plugin, int bStatsPluginId)
     {
 
 //        Used to get plugin instance in other classes
@@ -63,7 +63,7 @@ public class TemplateAPI implements QPluginAPI
         registerCommands();
     }
 
-    public static QTemplatePlugin getPlugin()
+    public static ${artifactId} getPlugin()
     {
         return pluginInstance;
     }
@@ -74,14 +74,14 @@ public class TemplateAPI implements QPluginAPI
     }
 
     @SuppressWarnings("SameParameterValue")
-    protected static void enable(QTemplatePlugin plugin, int bStatsPluginId)
+    protected static void enable(${artifactId} plugin, int bStatsPluginId)
     {
         if (apiInstance != null)
         {
             QLogger.error(GenericMessages.ERROR_PLUGIN_ENABLE);
             return;
         }
-        apiInstance = new TemplateAPI(plugin, bStatsPluginId);
+        apiInstance = new ${artifactId}API(plugin, bStatsPluginId);
     }
 
     protected static void disable()
