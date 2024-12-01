@@ -40,5 +40,6 @@
     <requiredProperties>
         <requiredProperty key="bukkitApiVersion" defaultValue="1.21"/>
         <requiredProperty key="qlibPaperVersion" defaultValue="1.0.0-beta4"/>
+        <requiredProperty key="rename"/>
     </requiredProperties>
 </archetype-descriptor>
