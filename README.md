@@ -1,10 +1,8 @@
 <div align="center">
 
-[![Modrinth][modrinth-shield]][modrinth-url]
 [![Discord][discord-shield]][discord-url]
 [![GitHub][github-shield]][github-url]
 [![Paypal][paypal-shield]][paypal-url]
-[![Supported Minecraft Versions][versions-shield]][versions-url]
 </div>
 
 ---
